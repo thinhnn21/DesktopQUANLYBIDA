@@ -32,7 +32,7 @@ namespace QUANLYBIDA
         private void adminToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Fadmin a = new Fadmin();
-            a.ShowDialog();
+            a.ShowDialog(
         }
     }
 }

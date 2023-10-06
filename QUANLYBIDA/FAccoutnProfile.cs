@@ -12,6 +12,7 @@ namespace QUANLYBIDA
 {
     public partial class FAccoutnProfile : Form
     {
+        //come
         public FAccoutnProfile()
         {
             InitializeComponent();
