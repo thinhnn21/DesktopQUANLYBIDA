@@ -1,566 +1,401 @@
-MINISTRY OF EDUCATION AND TRAINING
-UNIVERSITY OF ECONOMICS AND FINANCE
+
+M    MINISTRY OF EDUCATION AND TRAINING
+UNI      UNIVERSITY OF ECONOMICS AND FINANCE
+
+
+
+
+
+PROJECT REPORT
+
+Desktop Application Development
+
+TOPIC
+Quản Lý Quán Bida
+
+
+Major: 	Information Technology
+Minor: 	Software engineering
+ 
  
 
-PROJECT REPORT
-APPLICATION DEVELOPMEN OF ARTIFICIAL INTELLIGENCE
-Major: Information Technology
-Minor: Artificial Intelligence
-
-TOPIC: WEBSITE CHATBOT
-
-Supervisor:  Nguyễn Sơn Lâm, MSc
-Student: 
-Nguyễn Văn Mạnh		215051286		21D1TH-NT01
-Lê Vĩnh Ngọc			215051045		21D1TH-NT01
-Nguyễn Cao Bằng		215051639		21D1TH-NT01
-Nguyễn Ngọc Thịnh		215101362		21D1TH-NT01
-Hồ Đắc Nguyên		215051637		21D1TH-NT01
 
 
-Ho Chi Minh City, 2024 
+Ho Chi Minh City, 2023
 MINISTRY OF EDUCATION AND TRAINING
 UNIVERSITY OF ECONOMICS AND FINANCE
 
 
 
 PROJECT REPORT
-APPLICATION DEVELOPMEN OF ARTIFICIAL INTELLIGENCE
-Major: Information Technology
-Minor: Artificial Intelligence
+Desktop Application Development
+
+TOPIC
+Quản Lý Quán Bida
+
+Major: 	Information Technology
+Minor: 	Software engineering
+
+Supervisor: Hoàng Văn Hiếu
+Student ID 1: 195050974	Student’s name 1: Lê Tấn Đạt
+Student ID 2: 215052247	Student’s name 2: Nguyễn Viết Hoá
+Student ID 3:215101362	Student’s name 3: Nguyễn Ngọc Thịnh
+	
+Class: A04E
 
 
-TOPIC: WEBSITE CHATBOT
 
-Supervisor:  Nguyễn Sơn Lâm, MSc
-Student: 
-Nguyễn Văn Mạnh		215051286		21D1TH-NT01
-Lê Vĩnh Ngọc			215051045		21D1TH-NT01
-Nguyễn Cao Bằng		215051639		21D1TH-NT01
-Nguyễn Ngọc Thịnh		215101362		21D1TH-NT01
-Hồ Đắc Nguyên		215051637		21D1TH-NT01
+Ho Chi Minh City, 2023
 
-
-
-
-Ho Chi Minh City, 2024 
 TABLE OF CONTENTS
-CONTENTS
-TABLE OF CONTENTS	i
-LIST OF IMAGES	iv
-ABSTRACTS	vi
-CHAPTER 1 .	INTRODUCTION	1
-1.1	OVERVIEW OF THE TOPIC	1
-1.2	REASONS FOR CHOOSING THE TOPIC	1
-1.3	OBJECTIVES OF THE RESEARCH	1
-1.4	PROJECT STRUCTURE	2
-CHAPTER 2 .	THEORETICAL BASIS	3
-2.1	HTMl	3
-2.2	Python	3
-2.3	Javascript	4
-2.4	visual studio	4
-2.5	google collab	4
-2.6	Gemini AI	5
-2.7	Hugging Face	5
-CHAPTER 3 .	EXPERIMENTAL RESULTS	6
-3.1	HTML structure for the interface	6
-3.1.1	Head Part	6
-3.1.2	Library:	6
-3.1.3	Body Part	6
-3.1.4	CSS Styling	8
-3.1.5	User interaction	2
-3.1.6	Illustrative interface image	3
-3.2	GEmini chatbot	4
-3.2.1	Steps to get Genimi connection url and Create Gemini API	4
-3.2.2	Results obtained	6
-3.3	Hugging face model’s chatbot	6
-3.3.1	Steps to get Hugging face’s API token	7
-3.3.2	Steps to get url path to the model "Stable Diffusion 3.5 Large"	9
-3.3.3	Results obtained	11
-3.4	Handling feedback from Gemini	12
-3.5	Handling feedback from Stable Diffusion 3.5 Large	13
-3.5.1	Step 1: Send an HTTP POST request to the Hugging Face API	13
-3.5.2	Step 2: Wait for the response from the API	14
-3.5.3	Step 3: Check the response data	14
-3.5.4	Step 4: Handle errors from the API	14
-3.5.5	Step 5: Handle exceptions (Error Handling)	15
-3.5.6	Summary of the Process:	15
-3.6	Building a QA (Question Answering) chatbot on School Counseling with the "roberta-base" model.	16
-3.6.1	Introduction to the roberta-base model.	16
-3.6.2	Introduction to QA datasets. TDT. FQA_tu_van_hoc_duong on Huggingface.	16
-3.6.3	Building and training the model.	16
-3.6.4	Model Public URL using FastAPI and Ngrok.	18
-3.6.5	Test the model results.	20
-CHAPTER 4 .	CONCLUSION	23
-4.1	CONCLUSION	23
-4.2	DEVELOPMENT	23
-REFERENCES	25
 
-LIST OF IMAGES
-Figure 3.1.1. Head code	5
-Figure 3.1.2. Library	5
-Figure 3.1.3.Code to display video as background for browser	6
-Figure 3.1.4. Code allows user to choose any chatbot	6
-Figure 3.1.5. Code to display message and input box	6
-Figure 3.1.6. Interface code (1)	7
-Figure 3.1.7. Interface code (2)	7
-Figure 3.1.8. Interface code (3)	1
-Figure 3.1.9. Code of the interface frame of the message input box and function buttons in the chatbot	2
-Figure 3.1.10. Auto scroll effect code.	3
-Figure 3.1.11. chatbot browser interface	3
-Figure 3.2.1. Google AI Studio interface	4
-Figure 3.2.2. API key access interface	4
-Figure 3.2.3. Chosing Google Cloud projects	5
-Figure 3.2.4. Chose Google Cloud projects	5
-Figure 3.2.5. API key after created	6
-Figure 3.2.6. Warning after close API key generated noti box	6
-Figure 3.3.1. huggingFace main interface	7
-Figure 3.3.2. Access Token interface	8
-Figure 3.3.3. Create Token interface	8
-Figure 3.3.4. Created token announcement	9
-Figure 3.3.5. Find stable-diffusion 3.5 large model	9
-Figure 3.3.6. stable-diffusion 3.5 large mode details	10
-Figure 3.3.7. stable-diffusion 3.5 large model deploy button	10
-Figure 3.3.8. stable-diffusion 3.5 large mode JavaScript connection code	11
-Figure 3.6.1. Chatbot test with question 1	20
-Figure 3.6.2. Chatbot test with question 2	21
-Figure 3.6.3. Chatbot test with question 3	21
-Figure 3.6.4. Chatbot test with question 3	22
+Chương 1 Tổng quan về việc nghiên cứu	2
+1.1 Lý do chọn đề tài	2
+1.2 Giới thiệu bài toán và một số nghiên cứu liên quan	2
+1.2.1 Giới thiệu bài toán	2
+1.2.2 Các nghiên cứu liên quan	3
+1.2.3 Những thách thức trong bài toán	3
+1.2.4 Hướng tiếp cận giải quyết bài toán	4
+1.3 Mục tiêu, đối tượng, phạm vi nghiên cứu	5
+1.3.1 Mục tiêu nghiên cứu	5
+1.3.2 Đối tượng nghiên cứu	5
+1.3.3 Phạm vi nghiên cứu	6
+1.4 Nội dung và phương pháp nghiên cứu	6
+1.4.1 Nội dung nghiên cứu	6
+1.4.2 Phương pháp nghiên cứu	6
+1.5 Đóng góp của đề tài	6
+Chương 2 Phân tích thiết kế hệ thống	7
+2.1 Phân tích thiết kế hệ thống thông tin	7
+2.2 Các cách tiếp cận và phát triển một hệ thống thông tin	8
+2.3 Các bước phát triển của một hệ thống thông tin	9
+2.4 Một số mô hình phát triển của một hệ thống thông tin	9
+2.5 Các phương pháp phân tích thiết kế hướng cấu trúc	10
+2.6 Mô tả quy trình nghiệp cụ quản lý Phòng Khoa học Công Nghệ	11
+2.6.1 Quy trình đăng ký, xét duyệt, nghiệm thu, thanh lý đề tài nghiên cứu khoa học sinh viên	11
+2.7 Phân tích thiết kế hệ thống	14
+2.7.1 Phân tích hiện trạng	14
+2.7.2 Xác định yêu cầu	14
+2.1 Yêu cầu chức năng	14
+2.2 Yêu cầu phi chức năng	14
+3.1 Lược đồ các bảng dữ liệu	15
+3.2 Danh sách và chức năng các bảng dữ liệu chính	15
+Chương 3 Xây dựng và thực nghiệm hệ thống	16
+3.1 Các chức năng của hệ thống	16
+3.1.1 Đăng nhập	16
+3.1.2 Quản lý thời gian chơi của khách	17
+3.1.3 Quản lý thức ăn	18
+3.1.4 Quản lý doanh thu	19
+3.1.5 Thêm xóa sửa thông tin tài khoản	20
+3.1.6 Thanh toán	21
+3.2 Giao diện chương trình	23
+3.2.1 Giao diện đăng nhập	23
+3.2.2 Giao diện quản lý thời gian chơi của khách	24
+3.2.3 Giao diện quản lý thức ăn	24
+3.2.4 Giao diện quản lý doanh thu	24
+3.1.5 Giao diện thêm xóa sửa thông tin tài khoản	24
+3.1.6 Giao diện thanh toán	26
+Chương 4 Kết luận và hướng phát triển	27
+4.1 Kết luận	27
+4.2 Hướng phát triển	1
+Tài liệu tham khảo	1
+LIST OF ABBREVIATIONS
+ST
+Abbreviations
+Description
 
- 
 
- 
-ABSTRACTS 
 
-In recent years, artificial intelligence (AI) has revolutionized the way people interact with technology, especially through chatbots on many websites. However, most chatbot systems are developed for specific purposes, requiring users to switch between multiple platforms, through different websites to meet their diverse needs. This not only makes user interaction inconvenient but also limits the integration capabilities of AI solutions.
+Chương 1 Tổng quan về việc nghiên cứu 
+1.1 Lý do chọn đề tài
+Bida là một môn thể thao mang hơi hướng của nghệ thuật, được nhiều người yêu thích và chơi trong thời gian rảnh rỗi. Ngày nay, khi mà đời sống con người nâng cao hơn, con người cần nhiều hơn là vật chất và cũng có nhiều người tìm đến bida, như một hình thức giải trí, thư giãn sau những giờ làm việc căng thẳng. Do đó, các quán, câu lạc bộ bida ngày càng phát triển và thu hút nhiều khách hàng.
+Tuy nhiên, việc quản lý quán bida không phải là đơn giản, bởi nó liên quan đến nhiều hoạt động như tính tiền, bảo trì, thống kê, tìm kiếm, in hóa đơn, v.v. Nếu chỉ sử dụng các phương pháp truyền thống như sổ sách, bảng biểu, máy tính, v.v. thì sẽ gặp nhiều khó khăn và bất tiện, như mất thời gian, sai sót, khó kiểm soát, khó cập nhật, v.v.
+Để giải quyết những khó khăn trên, chúng tôi đã chọn đề tài đồ án quản lý quán bida để áp dụng các kiến thức về công nghệ thông tin vào giải quyết các vấn đề thực tế của các quán, câu lạc bộ bida. Đồ án này có tính thực tiễn cao, sáng tạo, hấp dẫn và thách thức.
+1.2 Giới thiệu bài toán và một số nghiên cứu liên quan
+1.2.1 Giới thiệu bài toán
+Bài toán quản lý quán bida là bài toán áp dụng công nghệ thông tin vào việc giải quyết các vấn đề thực tế của các quán, câu lạc bộ bida, như tính tiền, bảo trì, thống kê, tìm kiếm, in hóa đơn, v.v. Bài toán này có thể được định nghĩa như sau:
+Đầu vào: là thông tin của các quán bida và khách hàng sử dụng dịch vụ bida, như tên, địa chỉ, số điện thoại, số bàn bida, giá thuê bàn theo giờ, số giờ thuê bàn, số tiền thanh toán, v.v.
+Đầu ra: là các chức năng quản lý quán bida trên nền web, như đăng nhập và đăng xuất, quản lý quán bida, quản lý khách hàng, tính tiền, in hóa đơn, thống kê, tìm kiếm, v.v.
+Mục đích: là giúp cho người dùng có thể quản lý quán bida một cách hiệu quả và tiện lợi hơn so với các phương pháp truyền thống. Bài toán này có ý nghĩa cho thực tiễn và lý thuyết như sau:
+Cho thực tiễn: là giúp cho người dùng tiết kiệm thời gian, công sức và chi phí trong việc quản lý quán bida. Bài toán này cũng góp phần nâng cao chất lượng dịch vụ và sự hài lòng của khách hàng khi sử dụng dịch vụ bida.
+Cho lý thuyết: là góp phần phát triển và ứng dụng các kiến thức về công nghệ thông tin vào giải quyết các vấn đề thực tế. Bài toán này cũng mở ra những hướng nghiên cứu mới và thú vị cho các nhà khoa học và sinh viên trong lĩnh vực này.
 
-With this chatbot integration website project, we aim to develop a web-based platform that integrates multiple chatbots with separate functions, providing a seamless and unified user experience. By leveraging available chatbots such as Gemini or Hugging Face models as well as self-made chatbots, our website will bring users the most comfortable and simple experiences.
+1.2.2 Các nghiên cứu liên quan
+Các nghiên cứu liên quan đến quản lý quán bida là các nghiên cứu về cách mở, vận hành và phát triển các quán, câu lạc bộ bida, cũng như cách ứng dụng công nghệ thông tin vào việc quản lý quán bida. 
+1.2.3 Những thách thức trong bài toán
+Phát triển AI cờ vua đối diện với nhiều thách thức phức tạp, bao gồm:
+1. Khả năng tính toán lớn: Trò chơi cờ vua có mức độ phức tạp cao với số lượng lớn các nước đi có thể, và để đánh bại kỳ thủ hàng đầu, AI cần phải xử lý hàng triệu hoặc thậm chí hàng tỷ nước đi mỗi giây.
+2. Học máy và Tự học: AI cờ vua hiệu quả cần có khả năng học máy và tự học. Các chương trình như AlphaZero đã chứng minh rằng tự học thông qua chơi hàng triệu trận cờ vua có thể giúp cải thiện nhiều. Tuy nhiên, việc tự học đôi khi đòi hỏi nhiều tài nguyên tính toán và có thể trở nên không hiệu quả.
+3. Trò chơi công bằng và phát hiện gian lận: Trong các cuộc thi và trò chơi cờ vua trực tuyến, đảm bảo trò chơi công bằng và phát hiện gian lận là một thách thức quan trọng. Phát triển các công cụ và thuật toán để kiểm tra trò chơi công bằng và phát hiện sự gian lận đòi hỏi nghiên cứu về an toàn và bảo mật thông tin.
+4.Xử lý kiến thức cuối trò chơi: Trong các tình huống cuối trò chơi, như khi chỉ còn vài quân cờ trên bàn, cần có kiến thức cuối trò chơi chính xác để đánh bại đối thủ. Phát triển và sử dụng bảng cuối trò chơi (endgame tablebases) đòi hỏi không gian lưu trữ lớn và kiến thức chi tiết về các tình huống cuối cùng.
+5. Học từ lối chơi con người: Một khía cạnh thú vị của AI cờ vua là khả năng học từ lối chơi của con người. Điều này đòi hỏi phát triển các thuật toán học máy có khả năng nắm bắt chiến thuật và chiến thuật cờ vua của con người và sử dụng chúng để cải thiện hiệu suất của AI.
+Phát triển AI cờ vua là một thách thức phức tạp, yêu cầu sự kết hợp của tính toán, lý thuyết trò chơi, học máy và nhiều khía cạnh khác của trí tuệ nhân tạo.
+1.2.4 Hướng tiếp cận giải quyết bài toán
+Có nhiều hướng tiếp cận để giải quyết bài toán cờ vua AI, và các hướng tiếp cận này thường kết hợp để tạo ra các chương trình cờ vua AI mạnh mẽ. Dưới đây là một số hướng tiếp cận quan trọng:
+1. Tối ưu hóa thuật toán tìm kiếm: Đây là hướng tiếp cận cơ bản trong phát triển AI cờ vua. Thuật toán tìm kiếm như Minimax và Alpha-Beta Pruning được sử dụng để tìm kiếm các nước đi tốt nhất trong không gian trò chơi. Các kỹ thuật tối ưu hóa như Negamax cải thiện tốc độ tính toán và tạo ra các phiên bản nâng cao như Principal Variation Search (PVS) và MTD(f).
+2. Biểu diễn trạng thái cờ và đánh giá: Cách bạn biểu diễn trạng thái cờ trên bàn và cách bạn đánh giá các trạng thái này rất quan trọng. Sử dụng bảng trạng thái, kết hợp với các hệ thống đánh giá thông qua hàm ước tính giá trị, là một phần quan trọng của hướng tiếp cận này. Các công cụ như bitboards cũng được sử dụng để tăng tốc độ tính toán.
+3. Học máy và mạng nơ-ron: Sử dụng học máy, đặc biệt là mạng nơ-ron, là một hướng tiếp cận hiện đại. Các mô hình học sâu như CNN (Convolutional Neural Networks) và RNN (Recurrent Neural Networks) được sử dụng để xử lý dữ liệu cờ và dự đoán giá trị tình huống. AlphaZero của DeepMind là một ví dụ tiêu biểu của hướng tiếp cận này.
+4. Sử dụng bảng cuối trò chơi (Endgame Tablebases): Bảng cuối trò chơi là một phần quan trọng của AI cờ vua. Chúng lưu trữ thông tin hoàn hảo về cách chơi trong các tình huống cuối cùng của trò chơi. Sử dụng bảng cuối trò chơi có thể giúp AI đánh cờ vua đạt được hiệu suất tối ưu trong những tình huống cuối cùng.
 
-The project focuses on designing a website that can effectively manage chatbot conversations, improve response accuracy and ensure a user-friendly interface.
+5. Học từ dữ liệu và con người: Cách chơi của con người, đặc biệt là các kỳ thủ hàng đầu, có thể cung cấp kiến thức quý báu cho AI. Thu thập và học từ dữ liệu trận đấu cờ vua của con người có thể cải thiện chiến thuật và chiến thuật của AI.
 
-We would like to thank our lecturer, Nguyễn Sơn Lâm, for always caring, understanding and supporting us wholeheartedly in completing this project. 
- 
-CHAPTER 1 .	INTRODUCTION
-1.1	OVERVIEW OF THE TOPIC
-In the digital age, artificial intelligence (AI) has become an important tool to automate and improve user experience. Chatbots, a popular application of AI, are being widely deployed in many fields such as customer service, education, healthcare, and entertainment. However, integrating different chatbots on the same platform to serve diverse user needs is still quite limited. Therefore, we carried out this project with the aim of creating a chatbot website that integrates many chatbots of many research organizations and different brands.
-1.2	REASONS FOR CHOOSING THE TOPIC
-•	Urgency of the problem:
-In the context of rapidly developing technology, artificial intelligence (AI) is increasingly widely applied in daily life. Chatbot, one of the typical applications of AI, not only helps improve interaction efficiency but also reduces operating costs for businesses. However, users today often have to access many different platforms or applications to use chatbots for different purposes. This makes it difficult to manage and reduces user experience.
-•	Development trend:
-Chatchat integration platforms such as poe.com, chatGPT.com are attracting a lot of attention thanks to their ability to provide diverse and convenient experiences. This is a potential trend, not only solving the problem of dispersion but also opening up opportunities to integrate many advanced AI technologies on the same platform.
-•	Applicability:
-The final project product of the group has the potential to become a useful tool for both individual users and organizations. It can be applied in many areas of life to simplify and facilitate life for everyone.
-1.3	OBJECTIVES OF THE RESEARCH
-•	Overall goal:
-Develop a web platform that integrates multiple chatbots with different features and purposes, to provide a comprehensive solution for users to interact and answer questions with AI, thereby improving efficiency and user experience.
-•	Specific objectives:
-	Build a chatbot integration platform:
-Develop an intuitive and user-friendly web interface that allows users to access and use multiple chatbots on the same platform, one website
-Support easy switching between chatbots without interrupting the user experience, saving chat histories, allowing users to proactively review previous conversations.
-	Develop diverse chatbots:
-Create and train specialized chatbots for many specific purposes such as searching for information, answering questions based on specific documents, or guiding students.
-Ensure chatbots are able to respond naturally and accurately by using technologies such as Gemini, OpenAI, HuggingFace, and other language models.
-1.4	PROJECT STRUCTURE
-The report has 4 main parts:
-Part 1: Introduction
-Part 2: Theoretical basis
-Part 3: Experiments and results
-Part 4: Conclusion
- 
-CHAPTER 2 .	THEORETICAL BASIS
-In this project, to complete the product, we used a total of 3 programming languages including HTML, JavaScript and Python, in which:
-- HTML: used to create the web interface
-- JavaScript: used to write code running inside the web
-- Python: used to train the chatbot chosen by our team
-In addition, we also used two more environments to complete the project, which are Visual Studio Code and Google Collab, in which:
-- Visual Studio Code: A familiar coding environment used to create the web interface and code running the web
-- Google Collab: An environment to train the chatbot chosen by the team 
-The finished product of our team's project will be a professional chatbot running website with a total of 3 chatbots including: chatbot 'Gemini' developed by Google, image-creating chatbot 'Stable Diffusion 3.5 Large' and one chatbot which was trained by ourselves.
-2.1	HTML
-HTML stands for Hyper Text Markup Language, is the standard markup language for creating Web pages. HTML describes the structure of a Web page consists of a series of elements. These elements tell the browser how to display the content and the label pieces of content such as "this is a heading", "this is a paragraph", "this is a link", etc
-2.2	PYTHON
-Python is an interpreted, object-oriented, high-level programming language with dynamic semantics. Its high-level built in data structures, combined with dynamic typing and dynamic binding, make it very attractive for Rapid Application Development, as well as for use as a scripting or glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes readability and therefore reduces the cost of program maintenance. Python supports modules and packages, which encourages program modularity and code reuse. The Python interpreter and the extensive standard library are available in source or binary form without charge for all major platforms, and can be freely distributed.
-2.3	JAVASCRIPT
-JavaScript is a versatile, dynamically typed programming language used for interactive web applications, supporting both client-side and server-side development, and integrating seamlessly with HTML, CSS, and a rich standard library.
-JavaScript is a single-threaded language which means it executes one task at a time. It is an Interpreted language which means it executes the code line by line. The data type of the variable is decided at run-time in JavaScript that’s why it is called dynamically typed.
-2.4	VISUAL STUDIO
-Visual Studio is a powerful developer tool that you can use to complete the entire development cycle in one place. It's a comprehensive integrated development environment (IDE) that you can use to write, edit, debug, and build code. Then deploy your app. Visual Studio includes compilers, code completion tools, source control, extensions, and many other features to enhance every stage of the software development process.
-With the variety of features and languages support in Visual Studio, you can grow from writing your first "Hello World" program to developing and deploying apps. For example, build, debug, and test .NET and C++ apps, edit ASP.NET pages in the web designer view, develop cross-platform mobile and desktop apps with .NET, or build responsive Web UIs in C#.
-2.5	GOOGLE COLLAB
-Google Colaboratory is a hosted Jupyter Notebook service that requires no setup to use and provides free access to computing resources, including GPUs and TPUs. Colab is especially well suited to machine learning, data science, and education.
-Google Colab, short for Google Colaboratory, is a free cloud service provided by Google that allows users to run Python code real-time in a browser-based environment. It offers a convenient way to write, execute, and share Python code along with its output.
-2.6	GEMINI AI
-Gemini is the result of large-scale collaborative efforts by teams across Google, including our colleagues at Google Research. It was built from the ground up to be multimodal, which means it can generalize and seamlessly understand, operate across and combine different types of information including text, code, audio, image and video.
-Gemini is also our most flexible model yet — able to efficiently run on everything from data centers to mobile devices. Its state-of-the-art capabilities will significantly enhance the way developers and enterprise customers build and scale with AI.
-2.7	HUGGING FACE
-Hugging Face Transformers is an open-source Python library that provides access to thousands of pre-trained Transformers models for natural language processing (NLP), computer vision, audio tasks, and more. It simplifies the process of implementing Transformer models by abstracting away the complexity of training or deploying models in lower level ML frameworks like PyTorch, TensorFlow and JAX.
-The Hugging Face Hub is a platform with over 900k models, 200k datasets, and 300k demo apps (Spaces), all open source and publicly available, in an online platform where people can easily collaborate and build ML together. The Hub works as a central place where anyone can explore, experiment, collaborate, and build technology with Machine Learning. 
- 
-CHAPTER 3 .	EXPERIMENTAL RESULTS
-3.1	HTML STRUCTURE FOR THE INTERFACE
-3.1.1	 Head Part
- 
-Figure 3.1.1. Head code
-<meta charset="UTF-8">: Ensures character code allows display of Vietnamese and special characters.
-<meta name="viewport" content="width=device-width, initial-scale=1.0">: Help the interface display correctly.
-<title>Chat Bot Tui Làm</title>: Set a title for the page, it will be displayed in the browser title bar.
-3.1.2	Library:
- 
-Figure 3.1.2. Library
-Anime.js: Animated effects library, helps create effects, making the interface come alive.
-Marked.js: Helps display text content more beautifully.
-Font Awesome: Displays beautiful icons, such as the send message button.
-3.1.3	Body Part
-•	Video nền:
- 
-Figure 3.1.3.Code to display video as background for browser
-The purpose is to create a dynamic background effect, autoplay video and loop.
-•	Sidebar:
- 
-Figure 3.1.4. Code allows user to choose any chatbot
-Contains chatbot selection buttons, allowing users to easily select any chatbot they want in the browser.
-•	Main Part:
- 
-Figure 3.1.5. Code to display message and input box
-	Contains chatbot selection buttons, allowing users to easily select any chatbot they want in the browser.
- 
-3.1.4	CSS Styling
- 
- 
-Figure 3.1.6. Interface code (1)
- 
-Figure 3.1.7. Interface code (2)
- 
- 
-Figure 3.1.8. Interface code (3)
-	Set fonts, colors, and backgrounds for the entire page
-	Use flexbox to position elements.
-	Separate formatting for user and bot messages, making it easy to differentiate.
-3.1.5	User interaction
- 
-Figure 3.1.9. Code of the interface frame of the message input box and function buttons in the chatbot
-<div style="display: flex; gap: 10px;">: Use Flexbox to align elements in rows, creating space between elements (textarea and button).
-placeholder="Type your message...": Display text in the chat box to remind the user.
-onclick="sendMessage()": Function called to send a message.
-onclick="createNewChat()": Function called to start a new chat.
-•	Dynamic response:
- 
-Figure 3.1.10. Auto scroll effect code.
-Add messages to the display, with automatic scrolling so users always see the latest messages..
-3.1.6	Illustrative interface image
- 
-Figure 3.1.11. chatbot browser interface 
-3.2	GEMINI CHATBOT
-3.2.1	Steps to get Genimi connection url and Create Gemini API
-First step, we will access this link: "https://aistudio.google.com" to access the Google AI Studio website with the purpose of creating an API key to hook into our project (log in and register to the website with a google account if necessary).
- 
-Figure 3.2.1. Google AI Studio interface
-Next, we will go to the next page: "https://aistudio.google.com/apikey" to be able to create an API key (or we can click on the "Get API key" button to quickly access from the initial default website).
- 
-Figure 3.2.2. API key access interface
-Furthermore, here we can see the url to connect to Google's Gemini in the "API quick start guide" is: 
-“https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=GEMINI_API_KEY”. 
-That means we have gone 50% of the way. Next we will continue to create API keys.
-Next step, click on the 'create API key' button, a dialog box will appear to select the Project to be able to create the API key.
- 
-Figure 3.2.3. Chosing Google Cloud projects
-I will choose "Gemini API" as the main project.
- 
-Figure 3.2.4. Chose Google Cloud projects
-Finally, click on the "Create API key in existing project" button to create an API key.
- 
-Figure 3.2.5. API key after created
-Once completed, we obtained Gemini's "API key" to be able to integrate into the chatbot.
- 
-Figure 3.2.6. Warning after close API key generated noti box
-3.2.2	Results obtained
-After launching each step in section 3.1.1, we have obtained important data to be able to complete hooking the chatbot to the website including:
-- Url to connect to Gemini: 
-“https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=GEMINI_API_KEY”
-- Google API key: 
-“AIzaSyD7IE4TXOrs7qwZDer8_eGex3WgauyQuhs”
-3.3	HUGGING FACE MODEL’S CHATBOT
-For Huggingface, we will use a model included in Huggingface, the "Stable Diffusion 3.5 Large" model whose main function is to generate images from text.
-Stable Diffusion 3.5 Large is a Multimodal Diffusion Transformer (MMDiT) text-to-image model that features improved performance in image quality, typography, complex prompt understanding, and resource-efficiency.
-3.3.1	Steps to get Hugging face’s API token
-First, we will log in to the huggingface website at the following link: "https://huggingface.co/" (please log in by clicking on the avatar icon in the left corner if necessary).
-Next, after logging in, we will select "Access Token" with the purpose of creating an API token to be able to connect to huggingface in general and the model we have chosen in particular.
- 
-Figure 3.3.1. huggingFace main interface
-After clicking on the "Access Token" button, a new interface page will appear, at this time if you want to create a new API token, click on the "Create New Token" button.
- 
-Figure 3.3.2. Access Token interface
-After clicking on the "Create New Token" button, a new interface will appear, here name the token and adjust the settings you want for your token. For the group, we will keep all the settings and then scroll to the bottom of the page to click "Create Token".
- 
-Figure 3.3.3. Create Token interface
-After completing, the group's Token will be displayed on the small interface. As noted, the token will not be viewable again, so please save the token in a safe place.
- 
-Figure 3.3.4. Created token announcement
-And finally we got the HuggingFace API token.
-3.3.2	Steps to get url path to the model "Stable Diffusion 3.5 Large"
-First step, go back to the main page at this link: "https://huggingface.co/". In the search bar on the top left corner, type in the model "stable diffusion 3.5 large", if the result is: "stabilityai/stable-diffusion-3.5-large" it means it is correct and click on it. Then we will be taken to the website containing information about that model.
- 
-Figure 3.3.5. Find stable-diffusion 3.5 large model
- 
-Figure 3.3.6. stable-diffusion 3.5 large mode details
-Next, search on the current website for the "deploy" button and click on it, then select "Inference API", this is where the url leading to the model is located.
- 
-Figure 3.3.7. stable-diffusion 3.5 large model deploy button
-Next, depending on the programming language you are using, choose the appropriate item. Here, because our web creation code is written in HTML and JavaScript, we will choose JavaScript.
- 
-Figure 3.3.8. stable-diffusion 3.5 large mode JavaScript connection code
-Here we see what we're looking for, the url code that connects to the "Stable Diffusion 3.5 Large" model: 
-“https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-3.5-large”
-3.3.3	Results obtained
-After launching each step in section 3.1.1, we have obtained important data to be able to complete hooking the "Stable Diffusion 3.5 Large" model to the website including:
-- Model's Url:
-“https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-3.5-large”
-- HuggingFace's Token:
-“hf_PrkkhtlouucZOzqJpyOZnOPOQnơilVRVb”
- 
-3.4	HANDLING FEEDBACK FROM GEMINI
-	Request details to the API.
-	Send an HTTP POST request to the Gemini API.
-	Attach API key for authentication.
-	Send input data (content from input variable) as JSON.
- 
-	Request options: The data is converted to a JSON string.
- 
-	Waiting for response: Use the await keyword to wait for the API to respond before continuing execution.
- 
-	Then Process the response:
-Parse the response from the API (usually in JSON format) into a JavaScript object.
-Save to variable geminiData
-Record response data to the dashboard
- 
-	Check response data
-	Check conditions
-	If condition is true: Returns the text content from the response.
-	If condition is false: Returns a user error message.
- 
-	Error handling
-	Log error information to the console
-	error message:Returns an error message to the user if a problem occurred while sending the request or processing the response.
- 
-3.5	HANDLING FEEDBACK FROM STABLE DIFFUSION 3.5 LARGE
-3.5.1	Step 1: Send an HTTP POST request to the Hugging Face API
-First, we need to send an HTTP POST request to the Hugging Face API, specifically to call a model like Gemini (or any other bot you choose), passing in the data you want to process (such as content from the user) and the API key for authentication.
- 
-Fetch is the method to send the HTTP request. We use POST to send data to the API.
-The headers section specifies the data type (here application/json).
-The body contains the data you want to send, where input is the user input wrapped in a JSON format.
-3.5.2	Step 2: Wait for the response from the API
-After the request is sent, we need to wait for the response from the Hugging Face API. This is done using the await keyword to ensure the code doesn't continue execution until the response is received.
- 
-await waits for the result of response.json(), which converts the API response from JSON format into a JavaScript object (geminiData).
-3.5.3	Step 3: Check the response data
-Once the response is received, we need to check the data to ensure it’s valid. If the API returns valid data, we’ll extract the necessary information and process it.
- 
-response.ok checks whether the request was successful (HTTP status 200–299).
-The Hugging Face response may contain multiple parts, so we need to check if candidates[0].content.parts[0].text exists. If it does, we extract and return that text.
-If the response data is not valid, we return an error message.
-3.5.4	Step 4: Handle errors from the API
-If the API doesn’t return valid data or there is an issue with the request, we need to handle the error and inform the user.
- 
-If the response is not successful (response.ok is false), we try to extract error information from response.json() and log it to the console.
-Any specific error will be returned to the user.
-3.5.5	Step 5: Handle exceptions (Error Handling)
-There might be unexpected errors, such as network issues, API being down, or misconfiguration. We need to catch these errors and handle them properly.
- 
-If any errors occur during the request or response processing (such as network errors or unexpected issues in the code), they will be caught by the catch block.
-The error is logged to the console, and a generic error message is returned to the user.
-3.5.6	Summary of the Process:
-1.	Send request: User data is sent to the API.
-2.	Wait for response: The code waits for the API response.
-3.	Check and process response: If the data is valid, it’s returned; otherwise, an error message is shown.
-4.	Handle API errors: If the API response isn’t successful, we handle the error.
-5.	Handle exceptions: Any unexpected errors (network or other) are caught and logged. 
+6. Phát triển chương trình thế mạnh qua việc cải thiện tính chính xác đánh giá: Một phần quan trọng của hướng tiếp cận này là phát triển các hệ thống đánh giá mạnh mẽ và khả năng đánh giá tình huống chính xác. Điều này bao gồm cải thiện hàm ước tính giá trị và cách xử lý các yếu tố phức tạp như trạng thái của bàn cờ và các quân cờ trên bàn.
+7. Kiểm tra và phát hiện gian lận: Đảm bảo tính trung thực và công bằng trong trò chơi cờ vua trực tuyến là một phần quan trọng. Phát triển các công cụ và thuật toán để kiểm tra gian lận và đảm bảo rằng trò chơi diễn ra một cách công bằng là quan trọng.
 
-3.6	BUILDING A QA (QUESTION ANSWERING) CHATBOT ON SCHOOL COUNSELING WITH THE "ROBERTA-BASE" MODEL.
-3.6.1	Introduction to the roberta-base model.
-“roberta-base” is a transformer model developed by Facebook AI, based on the BERT architecture. This model is designed to handle natural language comprehension tasks and has been pre-trained on a large dataset to improve performance in a variety of NLP tasks such as sentiment analysis, text classification, and questioning.
-3.6.2	Introduction to QA datasets. TDT. FQA_tu_van_hoc_duong on Huggingface.
-Dataset QA. TDT. FQA_tu_van_hoc_duong is a dataset used in the field of Question Answering in Vietnam, usually related to questions in the field of education Here is some general information about this dataset:
-Here is the link to access the dataset on Huggingface:
-“https://huggingface.co/datasets/BroDeadlines/QA.TDT.FQA_tu_van_hoc_duong.”
-This dataset was posted by a user on Huggingface called " BroDeadlines", this dataset includes 215 frequently asked questions of college students who often ask questions about school problems.
-3.6.3	Building and training the model.
-In order to build and train, we need to add the necessary libraries for the process of building the following are the necessary libraries:
-import io
-import json
-import torch
-import uvicorn
-import numpy as np
-import nest_asyncio
-from pyngrok import ngrok
-from pydantic import BaseModel
-from datasets import load_dataset
-from fastapi.responses import JSONResponse
-from tensorflow.keras.models import load_model
-from sklearn.preprocessing import LabelEncoder
-from fastapi.middleware.cors import CORSMiddleware
-from fastapi import FastAPI, File, UploadFile, HTTPException
-from transformers import AutoTokenizer, AutoModelForSequenceClassification, Trainer, TrainingArguments
-Next is to download the dataset from Huggingface:
-dataset = load_dataset("BroDeadlines/QA.TDT.FQA_tu_van_hoc_duong")
-Label the answers
-answers = dataset['train']['answer']  
-label_encoder = LabelEncoder()
-labels = label_encoder.fit_transform(answers)  
-Encode the question and label it accordingly to each answer in a row of the dataset.
-def preprocess_function(examples):
-    inputs = tokenizer(examples['question'], truncation=True, padding='max_length', max_length=512)
-    inputs['labels'] = labels[:len(examples['question'])]  
-    return inputs
+Hướng tiếp cận cụ thể sẽ phụ thuộc vào mục tiêu và ngữ cảnh cụ thể của mỗi dự án AI cờ vua. Thường thì sự kết hợp của nhiều hướng tiếp cận này mới tạo ra các chương trình cờ vua AI mạnh mẽ và cạnh tranh.
+1.3 Mục tiêu, đối tượng, phạm vi nghiên cứu
+1.3.1 Mục tiêu nghiên cứu
+Mục tiêu nghiên cứu của chúng tôi là xây dựng một ứng dụng quản lý quán bida window form c#, có các chức năng cơ bản như đăng nhập và đăng xuất, quản lý quán bida, quản lý khách hàng, tính tiền, in hóa đơn, thống kê, tìm kiếm, v.v. Chúng tôi muốn đạt được những kết quả sau:
+Hoàn thành ứng dụng quản lý quán bida theo yêu cầu chức năng và phi chức năng đã phân tích.
+Đánh giá hiệu năng và độ chính xác của ứng dụng qua các tiêu chí như thời gian xử lý, dung lượng bộ nhớ, số lượng lỗi, v.v.
+So sánh và đánh giá ưu điểm và khác biệt của ứng dụng so với các phần mềm quản lý quán bida khác trên thị trường.
+Đề xuất và triển khai ứng dụng cho một số quán bida thực tế để kiểm tra hiệu quả và khả năng ứng dụng của ứng dụng.
 
-tokenized_datasets = dataset.map(preprocess_function, batched=True)
-num_labels = len(set(labels))
-Load the Model for the sequence classification task with the model you inserted. 
-model = AutoModelForSequenceClassification.from_pretrained("roberta-base", num_labels=len(set(labels)))
+1.3.2 Đối tượng nghiên cứu
+Đối tượng nghiên cứu của chúng tôi là các quán bida và các khách hàng sử dụng dịch vụ bida. Chúng tôi muốn xây dựng một ứng dụng phù hợp với nhu cầu và thị hiếu của cả hai đối tượng này. Chúng tôi sẽ thu thập thông tin và ý kiến của các quán bida và khách hàng để phân tích yêu cầu và thiết kế ứng dụng. Chúng tôi cũng sẽ tiến hành kiểm tra và đánh giá ứng dụng trên cơ sở phản hồi của các đối tượng này.
+1.3.3 Phạm vi nghiên cứu
+Phạm vi nghiên cứu của chúng tôi là giới hạn trong một số quán bida trong khu vực Chúng tôi sẽ chọn một số quán bida có đặc điểm đại diện cho các loại quán bida khác nhau, như quy mô, mô hình kinh doanh, đối tượng khách hàng, v.v. Chúng tôi sẽ tiến hành nghiên cứu trên cơ sở thông tin và dữ liệu của các quán bida này. Chúng tôi không áp dụng ứng dụng cho các quán bida
+1.4 Nội dung và phương pháp nghiên cứu
+1.4.1 Nội dung nghiên cứu
+Phân tích yêu cầu: là việc nghiên cứu về bài toán quản lý quán bida, xác định mục tiêu, đối tượng, phạm vi nghiên cứu và các yêu cầu chức năng và phi chức năng của ứng dụng.
+Thu thập và xử lý dữ liệu,
+Thiết kế và xây dựng ứng dụng,
+Kiểm thử và triển khai ứng dụng
 
-Start defining the parameters for the model training process using  the TrainingArguments class  from the Hugging Face Transformers library:
-training_args = TrainingArguments(
-    output_dir='./results',
-    evaluation_strategy="epoch",
-    save_strategy="epoch",  
-    learning_rate=2e-5,
-    per_device_train_batch_size=16,
-    per_device_eval_batch_size=16,
-    num_train_epochs=100,
-    report_to="none",
-)
-Create a Trainer object from the Hugging Face Transformers library
-trainer = Trainer(
-    model=model,
-    args=training_args,
-    train_dataset=tokenized_datasets['train'],
-    eval_dataset=tokenized_datasets['train'],
-)
-And finally, start training the model:
-trainer.train()
-3.6.4	Model Public URL using FastAPI and Ngrok.
-Set up a web application using FastAPI and configure CORS (Cross-Origin Resource Sharing) middleware.
-app = FastAPI()
+1.4.2 Phương pháp nghiên cứu
+Phương pháp nghiên cứu của chúng tôi gồm có các phương pháp sau:
+Phương pháp nghiên cứu tài liệu
+Phương pháp khảo sát
+Phương pháp lập trình
+Phương pháp kiểm thử
+Phương pháp triển khai
+1.5 Đóng góp của đề tài 
+Đóng góp của đề tài là những lợi ích và khác biệt mà đề tài mang lại cho lĩnh vực công nghệ thông tin và quản lý quán bida. Tôi xin tổng kết lại những đóng góp của đề tài như sau:
+Cho lĩnh vực công nghệ thông tin: là góp phần phát triển và ứng dụng các kiến thức và kỹ năng về lập trình window form c#, cơ sở dữ liệu, thiết kế giao diện, kiểm thử ứng dụng, v.v. vào giải quyết các vấn đề thực tế. Đề tài cũng mở ra những hướng nghiên cứu mới và thú vị cho các nhà khoa học và sinh viên trong lĩnh vực này.
+Cho lĩnh vực quản lý quán bida: là giúp cho người dùng có thể quản lý quán bida một cách hiệu quả và tiện lợi hơn so với các phương pháp truyền thống. Ứng dụng cũng góp phần nâng cao chất lượng dịch vụ và sự hài lòng của khách hàng khi sử dụng dịch vụ bida.
+So với các nghiên cứu liên quan: đề tài có những ưu điểm và khác biệt như sau:
+Đề tài có hướng tiếp cận mới là sử dụng công nghệ thông tin để xây dựng một ứng dụng quản lý quán bida trên nền window form c#, trong khi các nghiên cứu liên quan chỉ tập trung vào khía cạnh kinh doanh quán bida.
+Đề tài có tính toàn diện và chi tiết hơn, bao gồm các công việc từ phân tích yêu cầu, thu thập và xử lý dữ liệu, thiết kế và xây dựng ứng dụng, kiểm thử và triển khai ứng dụng, trong khi các nghiên cứu liên quan chỉ cung cấp những thông tin cơ bản và hữu ích.
+Đề tài có tính khoa học và thực nghiệm cao, sử dụng các phương pháp nghiên cứu tài liệu, khảo sát, lập trình, kiểm thử, triển khai, trong khi các nghiên cứu liên quan chỉ dựa trên kinh nghiệm và quan điểm cá nhân của tác giả.
 
-origins = [
-    "http://127.0.0.1:5500",  
-    "http://localhost:5500",
-    "https://<your-ngrok-url>.ngrok.io"
-]
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],  
-    allow_credentials=True,
-    allow_methods=["*"],  
-    allow_headers=["*"],  
-)
-Define a class called Question, which inherits from BaseModel. This layer will be used to define the structure of the data that the API will receive and return.
-class Question(BaseModel):
-    question: str
-Create a function to perform the prediction of the answer from the user's input question.
-def predict(question):
-    try:
-        print(f"Processing question: {question}")  # Ghi log câu hỏi
-        inputs = tokenizer(question, return_tensors='pt').to('cpu')
-        with torch.no_grad():
-            outputs = model(**inputs)
+Chương 2 Phân tích thiết kế hệ thống 
+2.1 Phân tích thiết kế hệ thống thông tin
+- Các định nghĩa
+- Hệ thống là tập hợp các phần tử có quan hệ hữu cơ với nhau, tác động chi phối lẫn nhau theo các quy luật nhất định để trở thành một chỉnh thể. Từ đó xuất hiện thuộc tính mới gọi là tính trồi của hệ thống mà từng phần tử riêng lẻ không có hoặc có không đáng kể. 
+- Hệ thống thông tin là một hệ thống bao gồm các yếu tố có quan hệ với nhau cùng làm nhiệm vụ thu thập, xử lý, lưu trữ và phân phối thông tin và dữ liệu và cung cấp một cơ chế phản hồi để đạt được một mục tiêu định trước. Các tổ chức có thể sử dụng các hệ thống thông tin với nhiều mục đích khác nhau.
+- Hệ thống thông tin quản lý (Management Information System) là hệ thống cung cấp thông tin cho công tác quản lý của tổ chức. Hệ thống bao gồm con người, thiết bị và quy trình thu thập, phân tích, đánh giá và phân phối những thông tin cần thiết, kịp thời, chính xác cho những người soạn thảo các quyết định trong tổ chức.
+2.2 Các cách tiếp cận và phát triển một hệ thống thông tin 
+PDA (Process-Driven Approach): Đây là một tiếp cận tập trung vào việc thiết kế và phát triển hệ thống dựa trên quy trình và quy trình kinh doanh của tổ chức. PDA đặt sự tập trung lớn vào việc tối ưu hóa và cải thiện các quy trình kinh doanh trước khi xây dựng hệ thống thông tin. Mục tiêu chính là tạo ra hệ thống để hỗ trợ và tối ưu hóa các hoạt động kinh doanh.
+DDA (Data-Driven Approach): Trong tiếp cận này, tập trung vào quản lý và sử dụng dữ liệu một cách hiệu quả. Dữ liệu được coi là trái tim của hệ thống thông tin. DDA đặt sự tập trung vào việc xây dựng cơ sở dữ liệu mạnh mẽ và quản lý dữ liệu một cách cẩn thận để đảm bảo tính chính xác và sẵn sàng cho các quyết định kinh doanh.
 
-        logits = outputs.logits
-        probabilities = torch.softmax(logits, dim=-1)
-        answer_index = probabilities.argmax(dim=-1)
-        answer_probability = probabilities.max(dim=-1).values.item()
+SDA (Service-Driven Approach): Tiếp cận này tập trung vào việc xây dựng hệ thống thông tin bằng cách sử dụng các dịch vụ (services) độc lập. Mỗi dịch vụ có thể thực hiện một nhiệm vụ cụ thể và có khả năng tái sử dụng. SDA thúc đẩy tích hợp và mở rộng dễ dàng bằng cách sử dụng dịch vụ đã có sẵn.
+OOA (Object-Oriented Approach): Đây là tiếp cận dựa trên hướng đối tượng, trong đó hệ thống thông tin được xây dựng bằng cách sử dụng các đối tượng và lớp đối tượng để biểu diễn các khái niệm và chức năng. OOA giúp tạo ra mối quan hệ logic giữa các đối tượng và dễ dàng quản lý mã nguồn.
 
-        print(f"Predicted index: {answer_index}, Probability: {answer_probability}")  
-        return answer_index.item(), answer_probability,
-    except Exception as e:
-        print(f"Error in predict: {str(e)}")  
-        raise
+2.3 Các bước phát triển của một hệ thống thông tin
+Khảo sát: Thu thập thông tin về nhu cầu và yêu cầu của dự án. Cần hiểu rõ mục tiêu của hệ thống và thu thập thông tin từ người dùng cuối, quản lý, và các bên liên quan để xác định rõ những gì hệ thống cần thực hiện.
+Phân tích hệ thống: Phân tích chi tiết yêu cầu của hệ thống. Điều này bao gồm việc xác định các chức năng và quy trình cần thiết, đánh giá kiến trúc tổng thể của hệ thống, và xác định các luồng dữ liệu cũng như quan hệ giữa các thành phần.
+Thiết kế hệ thống: Xây dựng kiến trúc chi tiết của hệ thống. Thiết kế cơ sở dữ liệu, lược đồ dữ liệu, giao diện người dùng, và xác định các tiêu chuẩn và quy tắc phát triển giúp tạo ra một bản thiết kế chi tiết cho hệ thống.
+Xây dựng hệ thống thông tin: Lập trình ứng dụng và các thành phần hệ thống dựa trên bản thiết kế đã tạo. Xây dựng cơ sở dữ liệu và triển khai quy trình xử lý dữ liệu, sau đó tích hợp các thành phần lại với nhau.
+Cài đặt và bảo trì: Triển khai hệ thống vào môi trường sản xuất, đào tạo người dùng cuối về cách sử dụng hệ thống, và tiến hành bảo trì và quản lý hệ thống trong suốt vòng đời của nó. Bảo trì đảm bảo tính bảo mật và tuân thủ quy tắc và quy định.
 
-Create a predictive return endpoint.
-@app.post("/predict/")
-Define a get_prediction asynchronous function, which is used to process predictions for a question.
-async def get_prediction(question: Question):
-    try:
-        print(f"Received question: {question.question}")
-        answer_index, answer_probability = predict(question.question)
-        print(f"Predicted index: {answer_index}, Probability: {answer_probability}")
+2.4 Một số mô hình phát triển của một hệ thống thông tin
+Mô hình Waterfall (Chảy xuôi)
+Mô hình Agile
+Mô hình Spiral (Mô hình xoắn ốc)
+Mô hình V-Model (Mô hình hình chữ V)
+Mô hình Incremental (Tích hợp từng phần)
+Mô hình RAD (Rapid Application Development - Phát triển ứng dụng nhanh)
+2.5 Các phương pháp phân tích thiết kế hướng cấu trúc
+Cơ sở dữ liệu
+Dữ liệu: Bao gồm những mệnh đề phản ánh thực tại. Một phân loại lớn của các mệnh đề quan trọng trong thực tiễn là các đo đạc hay quan sát về một đại lượng biến đổi
+Cơ sở dữ liệu: Cơ sở dữ liệu là một tập hợp các dữ liệu có tổ chức liên quan đến nhau, thường được lưu trữ và truy cập điện tử từ hệ thống máy tính.
+Cơ sở dữ liệu quan hệ: Cơ sở dữ liệu quan hệ là một loại cơ sở dữ liệu lưu trữ và cung cấp quyền truy cập vào các điểm dữ liệu có liên quan đến nhau.
+Cách tạo lập quan hệ:
+Ràng buộc dữ liệu: Nhằm đảm bảo lưu trữ dữ liệu phù hợp với đối tượng trong thực tế thì có thể nói đến ba loại ràng buộc cơ bản nhất
+Ràng buộc về kiểu
+Ràng buộc về giải tích 
+Ràng buộc về logic 
+Các phép toán trên cơ sở dữ liệu quan hệ: Cơ sở dữ liệu thường xuyên thay đổi nhờ các phép toán.
+Phép chèn - Insert: Là phép thêm một bộ mới vào một quan hệ nhất định.
+Phép loại bỏ - Delete: Là phép xóa khỏi quan hệ một bộ bất kỳ.
+Phép thay đổi - Change: Sửa đổi nội dung của một bộ bất kì.
+2.6 Mô tả quy trình nghiệp cụ quản lý Phòng Khoa học Công Nghệ
+2.6.1 Quy trình đăng ký, xét duyệt, nghiệm thu, thanh lý đề tài nghiên cứu khoa học sinh viên
+	Quy trình đăng ký và xét duyệt đề tài nghiên cứu khoa học sinh viên được Phòng khoa học công nghệ xây dựng rõ ràng và chi tiết. Tư những thông tin đó, nhóm đã mô hình hóa quy trình như sau:
+	Quy trình đăng ký, xét duyệt, nghiệm thu và thanh lý đề tài nghiên cứu khoa học sinh viên: Giảng viên hoặc sinh viên hoặc thư ký khoa sẽ đại diện nhập thông tin đề tài và tiến hành nộp đề tài để xét duyệt. Sau khi nộp đề tài danh sách các đề tài sẽ chuyển qua cấp khoa xét duyệt. Nếu đề tài được xét duyệt sẽ được chuyển lên P.KHCN xét duyệt. Nếu đề tài được xét duyệt thì nhóm nghiên cứu sẽ tiến hành thực hiện đề tài. Ngược lại đề tài không xét duyệt ở cấp khoa hoặc P.KHCN thì sẽ được thông báo chỉnh sửa tương ứng.
 
-        if isinstance(answer_index, torch.Tensor):
-            answer_index = answer_index.item()
 
-        decoded_answer = label_encoder.inverse_transform([answer_index])
-        print(f"Decoded answer: {decoded_answer}")
 
-        answer_text = decoded_answer[0] if hasattr(decoded_answer, '__iter__') else decoded_answer
-        if len(answer_text) > 750:
-            chunks = [answer_text[i:i + 750] for i in range(0, len(answer_text), 750)]
-        else:
-            chunks = [answer_text]
+2.7 Phân tích thiết kế hệ thống
+2.7.1 Phân tích hiện trạng
+Hiện tại nhu cầu chơi bida đang ngày càng tăng cao, các quán bida liên tục được mở ra nhờ đó mà nhu cầu quản lý quán một cách hiệu quả cũng ngày một tăng cao vì vậy chúng em đã viết ra chương trình quản lý quán bi da nhằm mục đích phục vụ cũng như quản lý quán bida một cách hiệu quả.
+2.7.2 Xác định yêu cầu
+2.1 Yêu cầu chức năng
+Hệ thống được xây dựng cho các nhóm người sử dụng sau:
+Người quản lý:
+Xem doanh thu 
+ Thêm xóa sửa thông tin thức ăn 
+Thêm xóa sửa thông tin thông tin tài khoản
+Tính thời gian chơi 
+ Order món ăn 
+ Thanh toán bill
+Nhân viên:
+Tính thời gian chơi 
+ Order món ăn 
+Thanh toán bill
+2.2 Yêu cầu phi chức năng 
+Yêu cầu hệ thống
+Phân Quyền 
+Hệ thống được phần quyền theo nhóm người dùng. Với người quản lý có quyền cao nhất, có quyền cập nhật chỉnh sửa thông tin giá cả,  xem doanh thu, order thức ăn và thanh toán hóa đơn cho khách. Nhân viên có quyền thêm order và thanh toán hóa đơn cho khách.
+Cấu hình thực nghiệm
+Nhóm đưa ra cấu hình máy tính có cấu hình tối thiểu như sau:
+ Laptop có cấu hình tối thiểu Core i3
+ RAM 4GB
+ Kết nối Internet ổn định.
+Cài được phần mềm Microsoft Visual Studio từ phiên bản 2010 trở lên.
+Công cụ thực hiện phần mềm:
+Dùng ngôn ngữ C#
+Công cụ lập trình: Visual Studio 2017
+Hệ quản trị cơ sở dữ liệu Microsoft SQL Server 2016
+3.1 Lược đồ các bảng dữ liệu 
 
-        return {"answer": chunks}
-    except Exception as e:
-        print(f"Error: {str(e)}")
-        raise HTTPException(status_code=500, detail=str(e))
-Launch FastAPI and Ngrok.
-def start_ngrok():
-    public_url = ngrok.connect(8000)
-    print(f"Lấy link này để dổi: NgrokTunnel + /predict/")
-    print(f"Public URL: {public_url}")
 
-def start_fastapi():
-    uvicorn.run(app, host="0.0.0.0", port=8000)
-After launching, ngrok will create a public URL so that website applications can send prediction requests to the model and send feedback back to the website.
-Formatted.
-URL:https://a3d2-34-127-120-22.ngrok-free.app.
-	Then just create a cpoy link in js to process the request and response in javacript in Visuastudio Code.
- 
-3.6.5	Test the model results.
-Model results with input : Thủ tục và cách thức gia hạn đóng học phí như thế nào?
- 
-Figure 3.6.1. Chatbot test with question 1
-Model Results with Inputs :Lộ trình học phí Chương trình Chất lượng cao có tăng theo từng năm học hay không?
- 
-Figure 3.6.2. Chatbot test with question 2
-Model Results with Inputs :Làm sao để học tốt tiếng Anh?
- 
-Figure 3.6.3. Chatbot test with question 3
-Model Results with Inputs :Nếu sinh viên vắng học Tiếng Anh (có lí do chính đáng) có thể xin học bù được không?
- 
-Figure 3.6.4. Chatbot test with question 3
- 
-CHAPTER 4 .	CONCLUSION
-4.1	CONCLUSION
-The project has completed the construction of a web platform integrating 3 chatbots, including:
-•	Gemini: An information support chatbot from Google.
-•	Stable-diffusion-3.5-large from Hugging Face: Chatbot with strong image creation capabilities.
-•	Self-trained chatbot: An "academic support" chatbot trained with an available dataset.
-Our website has achieved some positive results, including:
-•	Successfully integrating chatbots on the same interface.
-•	Ensuring good interaction and stable responses from chatbots.
-•	Initial evaluation shows that the system meets the basic needs of users.
-However, the product still has some limitations:
-•	Limited scalability: The system has not been optimized to integrate more chatbots.
-•	Response speed: Sometimes the chatbot responds slowly because it has not been fully optimized.
-•	User experience: The interface and features as well as the current chatbot are still simple, unable to maximize their potential.
-4.2	DEVELOPMENT
-Enhance scalability:
-•	Redesign the Web architecture to easily integrate more chatbots in the future.
-Develop more self-trained chatbots:
-•	Learn, search for datasets and train more chat bots specializing in a fixed topic.
-•	Develop a more intuitive and friendly interface, supporting many interactions such as voice or images.
-•	Conduct UX/UI research to optimize the user experience.
-Increase the integration of other AI features:
-•	Add available chatbots, specialized for fields such as education, searching for information online, or suggesting financial information
-Deploy and test in real life:
-•	Collect feedback from many users to adjust and improve the website.
- 
-REFERENCES
-[1]	What is Python?  Executive Summary. (n.d.). Python.org. https://www.python.org/doc/essays/blurb/
-[2]	W3Schools.com. (n.d.). https://www.w3schools.com/html/html_intro.asp
-[3]	GeeksforGeeks. (2024, December 18). Introduction to JavaScript. GeeksforGeeks. https://www.geeksforgeeks.org/introduction-to-javascript/
-[4]	Google Colab. (n.d.). colab.google. colab.google. https://colab.google/#:~:text=Google%20Colaboratory,Blog
-[5]	Anandmeg. (2024, June 19). What is the Visual Studio IDE? Microsoft Learn. https://learn.microsoft.com/en-us/visualstudio/get-started/visual-studio-ide?view=vs-2022
-[6]	Hugging Face Hub documentation. (n.d.). https://huggingface.co/docs/hub/index
-[7]	Pichai, S. (2024, September 27). Introducing Gemini: our largest and most capable AI model. Google. https://blog.google/technology/ai/google-gemini-ai/#introducing-gemini
-[8]	RoBERTa. (n.d.). https://huggingface.co/docs/transformers/model_doc/roberta
+3.2 Danh sách và chức năng các bảng dữ liệu chính
+Bảng 1: Danh sách và chức năng các bảng đã hiệu chỉnh
+STT
+TÊN BẢNG 
+MÔ TẢ
+1
+Account
+Lưu trữ thông tin tài khoản đăng nhập
+2
+TableFood
+Lưu trữ thông tin của bàn hiện tại
+3
+FoodCategory
+Lưu trữ thông tin các loại thức ăn 
+4
+Food
+Lưu trữ thông tin các món ăn và giá
+5
+Bill
+Lưu trữ thông tin hóa đơn
+6
+BillInfo
+Lưu trữ thông tin hóa đơn từng bàn
+
+
+
+Chương 3 Xây dựng và thực nghiệm hệ thống 
+3.1 Các chức năng của hệ thống
+3.1.1 Đăng nhập
+	Chức năng đăng nhập là quá trình người dùng xác thực danh tính của họ bằng cách cung cấp thông tin xác thực như tên đăng nhập và mật khẩu để truy cập vào một hệ thống hoặc ứng dụng.
+3.1.2 Quản lý thời gian chơi của khách 
+	Tính năng quản lý thời gian chơi của khách trong phần mềm quản lý bida cho phép ghi nhận thời gian mỗi khách hàng sử dụng sân bida. Điều này giúp tính toán chi phí và đảm bảo rằng mọi người trả tiền dựa trên thời gian chơi thực tế, đồng thời giúp quản lý quán bida hiệu quả theo dõi sử dụng sân.
+3.1.3 Quản lý thức ăn 
+	Chức năng quản lý thức ăn trong phần mềm quản lý bida không phải là để ghi nhận và tính thời gian chơi bida, mà là để quản lý và theo dõi các đơn hàng thức ăn mà khách hàng đặt trong quán bida. Chức năng này giúp ghi nhận danh sách thực đơn, cập nhật, thêm, xóa sửa danh sách món ăn, tính toán tổng tiền, và đảm bảo rằng khách hàng được phục vụ thức ăn một cách hiệu quả và chính xác.
+3.1.4 Quản lý doanh thu 
+	Chức năng quản lý doanh thu trong phần mềm quản lý quán bida nhằm ghi nhận, tính toán và theo dõi tất cả thu nhập từ các giao dịch, bao gồm tiền thu từ việc chơi bida, đặt thức ăn, đồ uống và các dịch vụ khác, nhằm đảm bảo việc theo dõi và quản lý doanh thu một cách hiệu quả.
+3.1.5 Thêm xóa sửa thông tin tài khoản	
+ 	Chức năng quản lý tài khoản trong một phần mềm quản lý quán bida bao gồm thêm (đăng ký) tài khoản mới, xóa tài khoản không cần thiết, và sửa thông tin cá nhân của người dùng.
+
+3.1.6 Thanh toán
+ 	Chức năng thanh toán trong phần mềm quản lý quán bida cho phép khách hàng thanh toán các dịch vụ và sản phẩm mà họ đã sử dụng hoặc mua trong quán bida. 
+3.2 Giao diện chương trình 
+3.2.1 Giao diện đăng nhập
+
+Đăng nhập: khi khởi chạy ứng dụng, form đăng nhập hiện ra, nhập tên đăng nhập và mật khẩu. có 2 loại tài khoản là admin và staff. Bấm nút đăng nhập sẽ đăng nhập vào form, nút thoát để thoát chương trình, nút hình con mắt là để xem nhập mật khẩu đúng chưa
+
+
+3.2.2 Giao diện quản lý thời gian chơi của khách
+
+ 	Khi đăng nhập thành công sẽ hiện form. Chọn bàn sau đó chọn thức ăn và đồ uống sau đó bấm bắt đầu tính giờ thì thời gian sẽ được hiển thị ở ô txb thời gian bắt đầu và bắt đầu tính giờ chơi. Khi kết thúc bấm nút thanh toán thì ô txb thời gian kết thúc sẽ hiển thị thời gian nghỉ chơi đồng thời hiện ô thanh toán
+
+3.2.3 Giao diện quản lý thức ăn
+ 	Sau khi bấm chọn bàn thì có thể lựa chọn loại thức ăn đồ uống cũng như tên món ở 2 ô bên dưới, ô số bên cạnh là số lượng, sau khi lựa món thì bấm thêm món. Nếu khách kh gọi món thì lúc tính chỉ cần bấm thêm giá trị mặc định none
+Bảng dưới là bảng danh sách các món có sẵn. khi đăng nhập bằng tài khoản admin thì ta có thể theo dõi danh sách cũng như thực hiện các thao tác thêm, xóa, sửa món và tìm kiếm thức ăn
+
+3.2.4 Giao diện quản lý doanh thu
+ 	Khi đăng nhập bằng tk admin thì ta có thể theo dõi doanh thu của theo ngày hoặc theo tháng khi nhấn vào ô ngày bắt đầu và ngày kết thúc, giá trị mặc định sẽ là ngày đầu tháng và ngày cuối tháng. Sau đó bấm thống kê thì thông tin bill trong tháng sẽ hiện ra
+
+
+
+
+3.1.5 Giao diện thêm xóa sửa thông tin tài khoản
+ 	Khi đăng nhập bằng tk admin thì ta có thể vào phần tk để theo dõi tên hiển thị và tên đăng nhập của tk cũng như có thể thêm, xóa sửa tk đó nhưng không thể đổi mk
+
+
+còn ở ngoài giao diện chính sẽ có mục thông tin cá nhân. ở mục này ta có thể theo dõi các thông tin dưới của tk ta đăng nhập và có thể sử được mk mong muốn.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+3.1.6 Giao diện thanh toán
+ 	Sau khi lựa chọn bàn món ăn và giảm giá (nếu có) thì ta bấm nút thanh toán, nó sẽ hiện ra một ô thông báo số tiền và lưu tất cả dữ liệu vào database
+
+
+Sau khi chọn bàn và bấm nút thanh toán
+
+
+
+
+Chương 4 Kết luận và hướng phát triển
+4.1 Kết luận 
+	Đề tài đã nghiên cứu và xây dựng được hệ thống quản lý quán bida. Hệ thống đã hoàn thiện và đang chờ được xét duyệt. Hệ thống giúp nhân viên cũng như người quản lý thuận tiện trong việc quản lý, theo dõi hoạt động của quán. Ngoài ra chương trình còn có thể giúp nhân viên nhanh chóng hơn trong việc kiểm tra thanh toán và giúp đỡ khách hàng thuận tiện hơn cho việc phục vụ khách.
+	Ngoài việc hỗ trợ quản lý, theo dõi bàn quản lý doanh thu chương trình còn có thể mở rộng thêm chức năng lưu trữ, thống kê, in xuất hóa đơn, quản lý tần suất khách hàng đến thăm, kiểm tra khách vip, tạo hội viên khách hàng, v.v	
+4.2 Hướng phát triển 
+	Bên cạnh những kết quả đạt được, đề tài còn tồn đọng một số vấn đề chưa giải quyết được 
+Tối ưu hóa lịch đặt bàn: làm thế nào để tối ưu hóa quá trình đặt bàn và sắp xếp lịch chơi bida sao cho tận dụng tối đa sân bida mà không gây xung đột về thời gian.
+Quản lý nguồn nhân lực: Quản lý nhân viên và ca làm việc, cũng như tích hợp lịch làm việc của nhân viên vào hệ thống để đảm bảo đủ số lượng nhân viên vào mỗi ca làm việc.
+
+
+Phân tích dữ liệu và đánh giá hiệu suất: Làm thế nào để thu thập và phân tích dữ liệu từ hoạt động kinh doanh và sử dụng chúng để đánh giá hiệu suất, dự đoán nhu cầu của khách hàng, và cải thiện quản lý.
+Tương tác với khách hàng: Tương tác với khách hàng thông qua ứng dụng di động, thông báo thời gian sẵn sàng chơi, đặt bàn từ xa và khả năng đánh giá dịch vụ.
+Trong thời gian tới, nhóm sẽ tiếp tục nghiên cứu khắc phục, hạn chế và mở rộng thêm các chức năng mới.
+
+
+
+
+
+
+
+
+
+
+
+
+Tài liệu tham khảo 
+
+[1]  Lập trình phần mềm Quản lý quán cafe C# Winform
+https://www.youtube.com/watch?v=tu2k9ZrDlWA&list=PL33lvabfss1xnPhBJHjM0A8TEBBcGCTsf
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Giới thiệu chi tiết đề tài
+Input-Method-Output
+Mô tả chi tiết
+Các chức năng ứng dụng
+Demo ứng dụng
 
